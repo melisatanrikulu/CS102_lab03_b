@@ -1,12 +1,19 @@
 import java.util.Iterator;
 
+/*
+ * Test class for IntBag.
+ * Melisa Tanrikulu
+ * @version 02.07.2021
+ */
 public class TestIterators {
 
 	public static void main(String[] args) {
-		// IntBagIterator
 		
+		// IntBagIterator
 		IntBag bag = new IntBag();
-		//  … insert some elements
+		
+		
+		//  Numbers from 1 to 5
 		for (int index = 1; index <= 5; index++) 
 			bag.addValue(index);	
 		
@@ -24,10 +31,12 @@ public class TestIterators {
 		
 		System.out.println();
 		
-		//IntBagStepIterator
 		
+		//IntBagStepIterator
 		IntBag bag1 = new IntBag(3);
-		//  … insert some elements
+		
+		
+		//  Numbers from 1 to 20
 		for (int index = 1; index <= 20; index++) 
 			bag1.addValue(index);
 		

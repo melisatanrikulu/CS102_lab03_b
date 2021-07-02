@@ -22,6 +22,10 @@ public class IntBag {
     stepSize = 1;
   }
   
+  /**
+   * Creates an empty collection with room for up to 4 values.
+   * @param step size for iterator
+   */
   public IntBag(int stepSize) {
 	  bag = new int[4];
 	  this.stepSize = stepSize;
@@ -227,43 +231,76 @@ public class IntBag {
 	  return iterator;
   }
   
+  /*
+   * First iterator class for IntBag.
+   */
   public class IntBagIterator implements Iterator {
 		
+	  	// Instance Data Members
 		private IntBag aBag;
 		private int index;
 		
+		// Constructor
+		/*
+		 * Creates the iterator.
+		 * @param IntBag to be iterated
+		 */
 		public IntBagIterator(IntBag aBag ) {
 			index = 0;
 			this.aBag = aBag;
 		}
 		
+		/*
+		 * Returns the next object.
+		 * @return the next object
+		 */
 		public Object next() {
+			// Variables
 			int number;
 			
+			// Gets the value
 			number = aBag.getValue(index);
+			
+			// Increments the index by 1
 			index++;
 			
+			// Corresponding int in an Integer wrapper
 			Integer numberObj = new Integer(number);
 			
 			return numberObj;
 		}
 		
+		/*
+		 * Checks whether IntBag has a next element.
+		 * @return false if it does not have another element
+		 */
 		public boolean hasNext() {
+			// Variables
 			int size;
 			
+			// Gets the size
 			size = aBag.size();
 			
 			return (index < size);
 		}
 	}
   
+  /*
+   * Second iterator class for IntBag.
+   */
   public class IntBagStepIterator implements Iterator {
 	  
+	  // Instance Data Members
 	  private IntBag aBag;
 	  private int index;
 	  private int stepValue;
-	  private int size;
 	  
+	  // Constructor
+	  /*
+	   * Creates the iterator.
+	   * @param IntBag to be iterated
+	   * @param step size to iterate
+	   */
 	  public IntBagStepIterator( IntBag aBag, int m) {
 		  index = 0;
 		  this.aBag = aBag;
@@ -271,20 +308,37 @@ public class IntBag {
 		  
 	  }
 	  
+	  /*
+	   * Returns the next object.
+	   * @return the next object
+	   */
 	  public Object next() {
+		  	// Variables
 			int number;
 			
+			// Gets the value
 			number = aBag.getValue(index);
+			
+			// Increments the index by step value
 			index += stepValue;
 			
+			// Corresponding int in an Integer wrapper
 			Integer numberObj = new Integer(number);
 			
 			return numberObj;
 		}
 		
-	  public boolean hasNext() {		
+	  /*
+	   * Checks whether IntBag has a next element.
+	   * @return false if it does not have another element
+	   */
+	  public boolean hasNext() {	
+		  // Variables
+		  int size;
+		  
+		  // Gets the size
 		  size = aBag.size();
-		  //System.out.println("Index: " + index + " Size: " + size + " Index + stepValue: " + (index+stepValue));
+		  
 		  return (index < size);
 	  }
   }
